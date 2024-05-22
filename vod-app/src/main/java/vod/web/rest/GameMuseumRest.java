@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.LocaleResolver;
 import vod.model.Game;
@@ -28,6 +29,8 @@ public class GameMuseumRest {
     private final GameService gameService;
     private final MessageSource messageSource;
     private final LocaleResolver localeResolver;
+    private final GameMuseumValidator gameMuseumValidator;
+
 
     @GetMapping("/museums")
     List<GamesMuseum> getMuseums(@RequestParam(value = "phrase", required = false)String phrase,

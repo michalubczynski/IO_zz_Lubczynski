@@ -19,3 +19,22 @@ Accept-Language: it
  "name": "kolejne nowe museum"
 }
 
+
+###
+GET http://localhost:8080/webapi/games
+###
+GET http://localhost:8080/webapi/games/1
+###
+GET http://localhost:8080/webapi/gamesMuseum/1/games
+###
+POST http://localhost:8080/webapi/games
+Content-Type: application/json
+
+{
+  "title": "kolejne nowe museum",
+  "rating": 4.5,
+  "producent": {
+    "id": 2
+  }
+
+}

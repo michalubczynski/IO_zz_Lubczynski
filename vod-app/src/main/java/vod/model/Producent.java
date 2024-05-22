@@ -1,5 +1,7 @@
 package vod.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,7 @@ public class Producent {
 
     private int id;
     private String firstName;
+    @JsonIgnore
     private List<Game> games = new ArrayList<>();
 
     public Producent(int id, String firstName) {
