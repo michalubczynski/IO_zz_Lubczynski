@@ -1,5 +1,7 @@
 package vod.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,7 @@ public class GamesMuseum {
 
     private int id;
     private String name;
+    @JsonIgnore
     private List<Game> games = new ArrayList<>();
 
     public GamesMuseum(int id, String name) {
