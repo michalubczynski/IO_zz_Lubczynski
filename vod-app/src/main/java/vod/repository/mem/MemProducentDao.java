@@ -1,11 +1,12 @@
 package vod.repository.mem;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import vod.repository.ProducentDao;
 import vod.model.Producent;
 
 import java.util.List;
-@Component
+@Repository("producentDao")
 
 public class MemProducentDao implements ProducentDao {
     @Override

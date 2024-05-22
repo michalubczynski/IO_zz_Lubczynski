@@ -1,5 +1,6 @@
 package vod.service.impl;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import vod.repository.GameMuseumDao;
 import vod.repository.ProducentDao;
@@ -12,6 +13,7 @@ import vod.service.GameService;
 import java.util.List;
 import java.util.logging.Logger;
 @Component
+@Scope("prototype")
 public class GameServiceBean implements GameService {
 
     private static final Logger log = Logger.getLogger(GameService.class.getName());

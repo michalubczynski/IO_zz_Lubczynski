@@ -22,4 +22,9 @@ public class DummyGameMuseumDao implements GameMuseumDao {
     public List<GamesMuseum> findByGame(Game g) {
         return List.of();
     }
+
+    @Override
+    public GamesMuseum save(GamesMuseum museum) {
+        return null;
+    }
 }

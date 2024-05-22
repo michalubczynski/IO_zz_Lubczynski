@@ -1,5 +1,6 @@
 package vod.service.impl;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import vod.model.GamesMuseum;
 import vod.model.Game;
@@ -10,6 +11,7 @@ import vod.service.GameMuseumService;
 import java.util.List;
 import java.util.logging.Logger;
 @Component
+@Scope("prototype")
 public class GameMuseumServiceBean implements GameMuseumService {
 
     private static final Logger log = Logger.getLogger(GameMuseumService.class.getName());
@@ -33,6 +35,11 @@ public class GameMuseumServiceBean implements GameMuseumService {
     public List<Game> getGamesInMuseum(GamesMuseum c) {
         log.info("searching games available in Museum " + c.getId());
         return gameDao.findByMuseum(c);
+    }
+
+    @Override
+    public GamesMuseum addMuseum(GamesMuseum m) {
+        return gameMuseumDao.save(m);
     }
 
     @Override

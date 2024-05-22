@@ -13,4 +13,5 @@ public interface GameMuseumDao {
 
     List<GamesMuseum> findByGame(Game g);
 
+    GamesMuseum save(GamesMuseum museum);
 }

@@ -16,4 +16,5 @@ public interface GameMuseumService {
 
     List<Game> getGamesInMuseum(GamesMuseum gM);
 
+    GamesMuseum addMuseum(GamesMuseum m);
 }
