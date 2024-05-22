@@ -13,8 +13,9 @@ Accept: application/json
 ###
 POST http://localhost:8080/webapi/museums
 Content-Type: application/json
+Accept-Language: it
 
 {
- "name": "nowe museum"
+ "name": "kolejne nowe museum"
 }
 
