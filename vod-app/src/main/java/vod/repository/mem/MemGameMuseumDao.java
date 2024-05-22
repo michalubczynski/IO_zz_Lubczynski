@@ -1,5 +1,7 @@
 package vod.repository.mem;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 import vod.repository.GameMuseumDao;
 import vod.model.GamesMuseum;
 import vod.model.Game;
@@ -7,7 +9,8 @@ import vod.model.Game;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@Component("gameMuseumDao")
+//@Primary
 public class MemGameMuseumDao implements GameMuseumDao {
 
     @Override

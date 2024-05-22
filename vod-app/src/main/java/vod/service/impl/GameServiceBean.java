@@ -1,25 +1,26 @@
 package vod.service.impl;
 
+import org.springframework.stereotype.Component;
 import vod.repository.GameMuseumDao;
 import vod.repository.ProducentDao;
 import vod.repository.GameDao;
 import vod.model.GamesMuseum;
 import vod.model.Producent;
 import vod.model.Game;
-import vod.service.MovieService;
+import vod.service.GameService;
 
 import java.util.List;
 import java.util.logging.Logger;
+@Component
+public class GameServiceBean implements GameService {
 
-public class MovieServiceBean implements MovieService {
-
-    private static final Logger log = Logger.getLogger(MovieService.class.getName());
+    private static final Logger log = Logger.getLogger(GameService.class.getName());
 
     private ProducentDao producentDao;
     private GameMuseumDao gameMuseumDao;
     private GameDao gameDao;
 
-    public MovieServiceBean(ProducentDao producentDao, GameMuseumDao gameMuseumDao, GameDao gameDao) {
+    public GameServiceBean(ProducentDao producentDao, GameMuseumDao gameMuseumDao, GameDao gameDao) {
         this.producentDao = producentDao;
         this.gameMuseumDao = gameMuseumDao;
         this.gameDao = gameDao;

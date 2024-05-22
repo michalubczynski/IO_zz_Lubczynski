@@ -1,5 +1,6 @@
 package vod.repository.mem;
 
+import org.springframework.stereotype.Component;
 import vod.repository.GameDao;
 import vod.model.GamesMuseum;
 import vod.model.Producent;
@@ -7,7 +8,7 @@ import vod.model.Game;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Component
 public class MemGameDao implements GameDao {
     @Override
     public List<Game> findAll() {

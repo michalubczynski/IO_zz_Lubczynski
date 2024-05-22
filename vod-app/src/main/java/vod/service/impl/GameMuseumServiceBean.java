@@ -1,5 +1,6 @@
 package vod.service.impl;
 
+import org.springframework.stereotype.Component;
 import vod.model.GamesMuseum;
 import vod.model.Game;
 import vod.repository.GameMuseumDao;
@@ -8,7 +9,7 @@ import vod.service.GameMuseumService;
 
 import java.util.List;
 import java.util.logging.Logger;
-
+@Component
 public class GameMuseumServiceBean implements GameMuseumService {
 
     private static final Logger log = Logger.getLogger(GameMuseumService.class.getName());

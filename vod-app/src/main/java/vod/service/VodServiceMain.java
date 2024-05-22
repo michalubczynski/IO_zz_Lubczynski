@@ -1,5 +1,7 @@
 package vod.service;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import vod.repository.GameMuseumDao;
 import vod.repository.GameDao;
 import vod.repository.mem.MemGameMuseumDao;
@@ -14,15 +16,15 @@ public class VodServiceMain {
     public static void main(String[] args) {
         System.out.println("Let's find museums!");
 
+        ApplicationContext context = new AnnotationConfigApplicationContext("vod");
 
-        GameMuseumDao gameMuseumDao = new MemGameMuseumDao();
-        GameDao gameDao = new MemGameDao();
-
-        GameMuseumService service = new GameMuseumServiceBean(gameMuseumDao, gameDao);
+        GameMuseumService service = context.getBean(GameMuseumService.class);
 
 
         List<GamesMuseum> gamesMuseums = service.getAllMuseums();
         System.out.println(gamesMuseums.size() + " museums found:");
         gamesMuseums.forEach(System.out::println);
+        String foo = context.getBean(String.class);
+        System.out.println("Foo: " + foo); //foo + bar from configuration
     }
 }

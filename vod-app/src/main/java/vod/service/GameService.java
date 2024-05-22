@@ -1,11 +1,12 @@
 package vod.service;
 
+import org.springframework.stereotype.Component;
 import vod.model.Producent;
 import vod.model.Game;
 
 import java.util.List;
-
-public interface MovieService {
+@Component
+public interface GameService {
 
 
     List<Game> getAllGames();
