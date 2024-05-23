@@ -1,14 +1,20 @@
 package vod.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name="producent")
 public class Producent {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "firstname")
     private String firstName;
+    @OneToMany(mappedBy = "producent")
     @JsonIgnore
     private List<Game> games = new ArrayList<>();
 
