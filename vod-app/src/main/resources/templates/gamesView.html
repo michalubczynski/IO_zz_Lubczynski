@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Game Museums</title>
+    <link rel="stylesheet" th:href="@{/css/gameMuseumView.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1 th:text="${title}">Game Museums</h1>
+</header>
+<section>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>GamesMuseum</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="game : ${games}">
+            <td th:text="${game.title}"></td>
+            <td>
+                <a th:href="@{/museums?gameId={id}(id=${game.id})}" class="view-games">View Museums</a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<footer>
+    <p>&copy; 2024 Game Museums</p>
+</footer>
+</body>
+</html>

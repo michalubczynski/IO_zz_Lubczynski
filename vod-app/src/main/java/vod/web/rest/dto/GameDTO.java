@@ -6,6 +6,6 @@ import vod.model.Producent;
 @Data
 public class GameDTO {
     private String title;
-    private Producent producent;
+    private int producentId;
     private float rating;
 }

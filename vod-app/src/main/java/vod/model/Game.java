@@ -40,6 +40,7 @@ public class Game {
     public Producent getProducent() {
         return producent;
     }
+    public int getProducentId(){return producent.getId();}
 
     public void setProducent(Producent producent) {
         this.producent = producent;

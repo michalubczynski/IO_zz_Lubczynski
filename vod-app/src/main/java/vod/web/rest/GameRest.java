@@ -63,13 +63,17 @@ public class GameRest {
         }
     }
     @PostMapping("/games")
-    ResponseEntity<?> addMGame(@RequestBody GameDTO gameDTO){
+    ResponseEntity<?> addGame(@Validated @RequestBody GameDTO gameDTO, Errors errors){
+
         log.info("add new game {}", gameDTO);
 
+        if(errors.hasErrors()){
+            return ResponseEntity.badRequest().build();
+        }
         Game game = new Game();
         game.setTitle(gameDTO.getTitle());
         game.setRating(gameDTO.getRating());
-        game.setProducent(gameService.getProducentById(gameDTO.getProducent().getId()));
+        game.setProducent(gameService.getProducentById(gameDTO.getProducentId()));
         game = gameService.addGame(game);
         return ResponseEntity.
                 created(

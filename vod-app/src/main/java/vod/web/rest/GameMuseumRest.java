@@ -36,6 +36,11 @@ public class GameMuseumRest {
     List<GamesMuseum> getMuseums(@RequestParam(value = "phrase", required = false)String phrase,
                                  @RequestHeader(value = "custom-header", required = false)String customHeader,
                                  @CookieValue(value = "some-cookie", required = false)String someCookie){
+
+/*        if(phrase!= null && phrase.equals("foo")){
+            throw new IllegalArgumentException("Foo!");
+        }*/
+
         log.info("about to retrieve museums list");
         List<GamesMuseum> museums = gameMuseumService.getAllMuseums();
         log.info("{} found", museums.size());

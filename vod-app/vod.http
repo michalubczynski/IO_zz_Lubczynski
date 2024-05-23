@@ -31,10 +31,7 @@ POST http://localhost:8080/webapi/games
 Content-Type: application/json
 
 {
-  "title": "kolejne nowe museum",
+  "title": "Jakas nowa gra",
   "rating": 4.5,
-  "producent": {
-    "id": 2
-  }
-
+  "producentId": 7
 }
