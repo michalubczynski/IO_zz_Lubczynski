@@ -2,6 +2,11 @@ package vod.service.impl;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 import vod.repository.GameMuseumDao;
 import vod.repository.ProducentDao;
 import vod.repository.GameDao;
@@ -18,9 +23,10 @@ public class GameServiceBean implements GameService {
 
     private static final Logger log = Logger.getLogger(GameService.class.getName());
 
-    private ProducentDao producentDao;
-    private GameMuseumDao gameMuseumDao;
-    private GameDao gameDao;
+    private final ProducentDao producentDao;
+    private final GameMuseumDao gameMuseumDao;
+    private final GameDao gameDao;
+    //private final PlatformTransactionManager transactionManager;
 
     public GameServiceBean(ProducentDao producentDao, GameMuseumDao gameMuseumDao, GameDao gameDao) {
         this.producentDao = producentDao;
@@ -73,10 +79,35 @@ public class GameServiceBean implements GameService {
         return producentDao.findById(id);
     }
 
+//    @Override //podejscie imperatywne do obslugi transakcji
+//    public Game addGame(Game g) {
+//        log.info("about to add game " + g);
+//        TransactionStatus ts = transactionManager.getTransaction(new DefaultTransactionDefinition());
+//        try{
+//            g = gameDao.add(g);
+//            if ( g.getTitle().equals("NIEMOSZNA")){
+//                throw new RuntimeException("Not yet");
+//            }
+//            transactionManager.commit(ts);
+//        }catch (RuntimeException e){
+//            transactionManager.rollback(ts);
+//            throw e;
+//        }
+//
+//        return g;
+//    }
+    @Transactional(propagation = Propagation.REQUIRED) //podejscie deklaratywne
     @Override
     public Game addGame(Game g) {
+
         log.info("about to add game " + g);
-        return gameDao.add(g);
+
+            g = gameDao.add(g);
+            if ( g.getTitle().equals("NIEMOSZNA")){
+                throw new RuntimeException("Not yet");
+            }
+
+        return g;
     }
 
     @Override

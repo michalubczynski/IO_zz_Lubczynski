@@ -12,7 +12,6 @@ import vod.repository.GameDao;
 import java.util.List;
 
 @Repository
-@Primary
 public class JpaGameDao implements GameDao {
     @PersistenceContext
     private EntityManager entityManager;

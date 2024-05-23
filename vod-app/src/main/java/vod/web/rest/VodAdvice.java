@@ -25,4 +25,8 @@ public class VodAdvice {
     ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException e){
         return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body(e.getMessage());
     }
+    @ExceptionHandler(Exception.class)
+    ResponseEntity<String> handleException(Exception e){
+        return ResponseEntity.status(HttpStatus.LOOP_DETECTED).body(e.getMessage());
+    }
 }
