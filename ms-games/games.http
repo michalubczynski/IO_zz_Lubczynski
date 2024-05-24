@@ -1,0 +1,22 @@
+
+###
+GET http://localhost:8080/webapi/games
+
+
+###
+GET http://localhost:8080/webapi/games/1
+
+
+###
+GET http://localhost:8080/webapi/gamesMuseum/1/games
+
+
+###
+POST http://localhost:8080/webapi/games
+Content-Type: application/json
+
+{
+  "title": "Jakas nowa gra",
+  "rating": 4.5,
+  "producentId": 7
+}
