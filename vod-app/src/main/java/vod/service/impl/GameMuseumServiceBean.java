@@ -1,6 +1,7 @@
 package vod.service.impl;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 import vod.model.GamesMuseum;
 import vod.model.Game;
@@ -36,7 +37,7 @@ public class GameMuseumServiceBean implements GameMuseumService {
         log.info("searching games available in Museum " + c.getId());
         return gameDao.findByMuseum(c);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @Override
     public GamesMuseum addMuseum(GamesMuseum m) {
         return gameMuseumDao.save(m);

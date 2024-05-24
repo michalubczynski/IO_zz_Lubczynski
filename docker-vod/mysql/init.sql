@@ -81,6 +81,33 @@ VALUES ('6', '1');
 INSERT INTO game_gamesmuseum(`game_id`, `gamesMuseum_id`)
 VALUES ('7', '2');
 
+CREATE TABLE user
+(
+        id int primary key auto_increment,
+        username VARCHAR(255),
+        password VARCHAR(255)
+);
+
+CREATE TABLE role
+(
+    id int primary key auto_increment,
+    username VARCHAR(255),
+    role VARCHAR(255)
+);
+
+INSERT Into user(username, password)
+VALUES
+    ('dbuser1', 'dbuser1'),
+    ('dbuser2', 'dbuser2'),
+    ('dbuser3', 'dbuser3');
+INSERT Into role(username, role)
+VALUES
+    ('dbuser1', 'ROLE_ADMIN'),
+    ('dbuser2', 'ROLE_AUTHOR_ADMIN'),
+    ('dbuser3', 'ROLE_BOOK_ADMIN');
+
+
+
 
 
 
